@@ -21,11 +21,3 @@
   font-display: swap;
   font-style: italic;
 }
-
-.btn {
-  @apply rounded-md px-3 py-2 text-sm font-semibold transition-all duration-300 active:scale-95;
-}
-
-.input {
-  @apply block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 ring-1 ring-gray-300 duration-300 placeholder:text-gray-400 hover:bg-gray-300/15 focus:rounded-3xl focus:ring-2;
-}

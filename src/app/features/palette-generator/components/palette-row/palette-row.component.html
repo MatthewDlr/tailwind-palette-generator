@@ -1,0 +1,11 @@
+@defer (when palette().length > 0 && selectedColor()) {
+  <div class="flex h-fit w-full gap-3">
+    @for (color of palette(); track $index) {
+      <div
+        class="fade-right h-40 w-24 transition-all max-xl:w-20 fade-right-delay-{{ $index + 1 }} duration-300"
+        [ngStyle]="{ 'background-color': color }"
+        [ngClass]="color === '#' + selectedColor() ? 'rounded-[100px]' : 'rounded-xl hover:rounded-2xl'"
+      ></div>
+    }
+  </div>
+}

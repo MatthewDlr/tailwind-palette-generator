@@ -1,0 +1,63 @@
+:root {
+  --fade-right-delay: 0ms;
+}
+
+.fade-right {
+  opacity: 0;
+  animation: fade-right 0.5s cubic-bezier(0.65, 0.05, 0.35, 1) var(--fade-right-delay) forwards;
+}
+
+.fade-right-delay-1 {
+  --fade-right-delay: 25ms;
+}
+
+.fade-right-delay-2 {
+  --fade-right-delay: 50ms;
+}
+
+.fade-right-delay-3 {
+  --fade-right-delay: 75ms;
+}
+
+.fade-right-delay-4 {
+  --fade-right-delay: 100ms;
+}
+
+.fade-right-delay-5 {
+  --fade-right-delay: 125ms;
+}
+
+.fade-right-delay-6 {
+  --fade-right-delay: 150ms;
+}
+
+.fade-right-delay-7 {
+  --fade-right-delay: 175ms;
+}
+
+.fade-right-delay-8 {
+  --fade-right-delay: 200ms;
+}
+
+.fade-right-delay-9 {
+  --fade-right-delay: 225ms;
+}
+
+.fade-right-delay-10 {
+  --fade-right-delay: 250ms;
+}
+
+.fade-right-delay-11 {
+  --fade-right-delay: 275ms;
+}
+
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}

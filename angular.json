@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TODO-name": {
+    "tailwind-palette-generator": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,10 +18,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "baseHref": "/",
-            "outputPath": {
-              "base": "dist",
-              "browser": ""
-            },
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [],
@@ -34,8 +31,15 @@
               },
               "src/manifest.json"
             ],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -73,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TODO-name:build:production"
+              "buildTarget": "tailwind-palette-generator:build:production"
             },
             "development": {
-              "buildTarget": "TODO-name:build:development"
+              "buildTarget": "tailwind-palette-generator:build:development"
             }
           },
           "defaultConfiguration": "development"

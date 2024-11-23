@@ -1,7 +1,7 @@
 ### TODO
-Replace every instance of `TODO-name` with the name of the project.
+Replace every instance of `tailwind-palette-generator` with the name of the project.
 
-# TODO-name
+# tailwind-palette-generator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
 

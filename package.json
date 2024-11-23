@@ -1,5 +1,5 @@
 {
-  "name": "TODO-name",
+  "name": "tailwind-palette-generator",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,8 @@
     "dev": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --fix",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "serve:ssr:tailwind-palette-generator": "node dist/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +22,10 @@
     "@angular/forms": "^19.0.0",
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/platform-server": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@angular/ssr": "^19.0.1",
+    "express": "^4.18.2",
     "rxjs": "~7.8.1",
     "tslib": "^2.8.1"
   },
@@ -30,7 +34,9 @@
     "@angular/cli": "^19.0.1",
     "@angular/compiler-cli": "^19.0.0",
     "@tailwindcss/forms": "^0.5.9",
+    "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.4",
+    "@types/node": "^18.18.0",
     "angular-eslint": "19.0.0-alpha.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",

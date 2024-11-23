@@ -47,6 +47,9 @@ importers:
       express:
         specifier: ^4.18.2
         version: 4.21.1
+      hex-color-to-color-name:
+        specifier: ^1.0.2
+        version: 1.0.2
       rxjs:
         specifier: ~7.8.1
         version: 7.8.1
@@ -2969,6 +2972,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  hex-color-to-color-name@1.0.2:
+    resolution: {integrity: sha512-YKPBFTSbYIHH8YKcJB4Q5PV+Tr+kvDXpV60BcPMUu5CSZUcc/qOOx7lkr7luk6MSXKd5A82yfPGZTgedIdQ+aA==}
 
   hosted-git-info@8.0.2:
     resolution: {integrity: sha512-sYKnA7eGln5ov8T8gnYlkSOxFJvywzEx9BueN6xo/GKO8PGiI6uK6xx+DIGe45T3bdVjLAQDQW1aicT8z8JwQg==}
@@ -8059,6 +8065,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  hex-color-to-color-name@1.0.2: {}
 
   hosted-git-info@8.0.2:
     dependencies:

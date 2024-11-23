@@ -1,7 +1,8 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, linkedSignal, signal } from "@angular/core";
 import { PaletteGeneratorService } from "../../services/palette-generator/palette-generator.service";
 import { ColorPickerComponent } from "../color-picker/color-picker.component";
 import { PaletteRowComponent } from "../palette-row/palette-row.component";
+import { GetColorName } from "hex-color-to-color-name";
 
 @Component({
   selector: "app-palette-generator-page",
@@ -12,10 +13,11 @@ import { PaletteRowComponent } from "../palette-row/palette-row.component";
 export class PaletteGeneratorPageComponent {
   private paletteGeneratorService = inject(PaletteGeneratorService);
   public palette: string[] = [];
-  public selectedColor: string = "";
+  public selectedColor = signal("");
+  public selectedColorName = linkedSignal(() => GetColorName(this.selectedColor()));
 
   protected updateHexColor(hexColor: string): void {
-    this.selectedColor = hexColor;
+    this.selectedColor.set(hexColor);
     if (hexColor === "") {
       this.palette = [];
       return;

@@ -1,5 +1,7 @@
 import { CommonModule } from "@angular/common";
-import { Component, effect, input } from "@angular/core";
+import { Component, effect, input, linkedSignal } from "@angular/core";
+import { GetColorName } from "hex-color-to-color-name";
+
 
 @Component({
   selector: "app-palette-row",

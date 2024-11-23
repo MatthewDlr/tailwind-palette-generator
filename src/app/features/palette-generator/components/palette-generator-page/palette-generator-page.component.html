@@ -1,6 +1,11 @@
 <div class="relative z-10 flex h-full w-full flex-col items-center gap-10 pt-32">
   <h1 class="z-10 text-4xl font-bold text-gray-950">TailwindCSS Color Palette Generator</h1>
-  <app-color-picker (hexColor)="updateHexColor($event)"></app-color-picker>
+  <div class="flex flex-col gap-2">
+    <app-color-picker (hexColor)="updateHexColor($event)"></app-color-picker>
+    @if (selectedColor()) {
+      <p class="text-nowrap text-center font-normal text-gray-900">{{ selectedColorName() }}</p>
+    }
+  </div>
 
-  <app-palette-row class="mt-20" [palette]="palette" [selectedColor]="selectedColor"></app-palette-row>
+  <app-palette-row class="mt-20" [palette]="palette" [selectedColor]="selectedColor()"></app-palette-row>
 </div>

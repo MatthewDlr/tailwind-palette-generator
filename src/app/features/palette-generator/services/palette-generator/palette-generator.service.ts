@@ -20,7 +20,7 @@ export class PaletteGeneratorService {
   public generatePalette(hexColor: string): string[] {
     // Calculate luminance (0 = black, 1 = white)
     const luminance = chroma(hexColor).luminance();
-    const offset = luminance >= 0.5 ? 1 : 0.9;
+    const offset = luminance >= 0.5 ? 1 : luminance >= 0.3 ? 0.9 : 0.8;
     const basePosition = Math.round((offset - luminance) * 10) / 10;
 
     // Create a dynamic domain (custom stops for the scale)

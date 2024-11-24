@@ -1,26 +1,22 @@
-@defer (when palette().length > 0 && selectedColor()) {
-  <div class="flex h-fit w-full gap-3">
-    @for (color of palette(); track $index) {
-      <button
-        class="group flex flex-col items-center"
-        (click)="copyColorToClipboard(color)"
-        (keypress)="copyColorToClipboard(color)"
-        tabindex="0"
-      >
-        <button class="flex flex-col justify-end gap-2 align-middle transition-all duration-300 group-hover:-translate-y-5">
-          <div
-            class="flex flex-col items-center px-2 py-4 gap-1 fade-right max-xl:w-20 w-24 h-40 transition-all duration-300 fade-right-delay-{{
-              $index + 1
-            }} "
-            [ngStyle]="{ 'background-color': color }"
-            [ngClass]="color === '#' + selectedColor() ? 'rounded-[100px]' : 'rounded-xl'"
-          >
-            <p class="text-base font-medium" [ngStyle]="{ color: getTextColor(color) }">{{ getColorNumber($index) }}</p>
-            <p class="text-sm uppercase" [ngStyle]="{ color: getTextColor(color) }">{{ color }}</p>
-          </div>
-        </button>
-        <p class="-z-10 -translate-y-5 text-sm font-light text-gray-900">Copy</p>
-      </button>
-    }
-  </div>
-}
+<div class="flex h-fit w-full gap-3">
+  @for (color of colorPalette().colors; track $index) {
+    <button
+      class="group flex flex-col items-center fade-right transition-all duration-300 fade-right-delay-{{ $index + 1 }} "
+      (click)="copyColorToClipboard(color.hexCode)"
+      (keypress)="copyColorToClipboard(color.hexCode)"
+      tabindex="0"
+    >
+      <div class="flex flex-col justify-end gap-2 align-middle transition-all duration-300 group-hover:-translate-y-5">
+        <div
+          class="flex h-40 w-24 flex-col items-center gap-1 px-2 py-4 max-xl:w-20 transition-all duration-300"
+          [ngStyle]="{ 'background-color': color.hexCode }"
+          [ngClass]="color.hexCode === '#' + colorPalette().mainColor ? 'rounded-[100px]' : 'rounded-xl'"
+        >
+          <p class="text-base font-medium" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.shade }}</p>
+          <p class="text-sm uppercase" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.hexCode }}</p>
+        </div>
+      </div>
+      <p class="-z-10 -translate-y-5 text-sm font-light text-gray-900">Copy</p>
+    </button>
+  }
+</div>

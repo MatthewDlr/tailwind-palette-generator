@@ -4,10 +4,10 @@ import { FormsModule } from "@angular/forms";
 import chroma from "chroma-js";
 
 @Component({
-  selector: 'app-color-picker',
+  selector: "app-color-picker",
   imports: [CommonModule, FormsModule],
-  templateUrl: './color-picker.component.html',
-  styleUrl: './color-picker.component.scss',
+  templateUrl: "./color-picker.component.html",
+  styleUrl: "./color-picker.component.scss",
 })
 export class ColorPickerComponent implements OnInit {
   public hexColor = output<string>();
@@ -46,6 +46,7 @@ export class ColorPickerComponent implements OnInit {
   @HostListener("document:keypress", ["$event"])
   protected onKeyPress(event: KeyboardEvent) {
     if (event.key === " ") {
+      event.preventDefault();
       this.colorInput = chroma.random().hex().slice(1);
       this.hexColor.emit(this.colorInput);
     }

@@ -31,9 +31,7 @@
               },
               "src/manifest.json"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss", "node_modules/highlight.js/styles/github.css"],
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",

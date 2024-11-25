@@ -36,7 +36,13 @@ ${colorPalette.colors.map(color => "    " + this.generateNewTailwindColor(colorN
   }
 
   private generateOldTailwindConfig(colorPalette: ColorPalette): string {
-    return "";
+    return `${colorPalette.colorName} {
+${colorPalette.colors.map(color => "  " + this.generateOldTailwindColor(color.hexCode, color.shade)).join("\n")}
+}`;
+  }
+
+  private generateOldTailwindColor(color: string, shade: number): string {
+    return `${shade}: "${color}",`;
   }
 
   private toCamelCase(str: string) {

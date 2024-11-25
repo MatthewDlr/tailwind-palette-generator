@@ -1,32 +1,52 @@
+<!-- Export Palette Code -->
 @if (isExportPopupVisible()) {
   <app-code-export-bloc
-    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
     [colorPalette]="colorPalette()!"
     (closePopup)="isExportPopupVisible.set(false)"
   ></app-code-export-bloc>
-} @else {
-  <button
-    type="button"
-    class="bottom-10 fixed left-1/2 z-50 -translate-x-1/2 transform rounded-full bg-gray-950 px-4 py-2.5 border-4 border-white/25 font-semibold text-white shadow-sm focus-visible:outline-none"
-    (click)="isExportPopupVisible.set(true)"
-  >
-    Export Palette
-  </button>
 }
 
+<!-- Export Palette Button -->
+<button
+  type="button"
+  class="fixed bottom-10 left-1/2 z-40 flex w-48 -translate-x-1/2 items-center justify-center gap-2 rounded-full border-4 border-white/25 bg-gray-950 py-2.5 font-semibold text-white shadow-sm transition-all duration-300 hover:w-52 hover:bg-gray-800 focus-visible:outline-none"
+  (click)="isExportPopupVisible.set(true)"
+>
+  Export Palette
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="lucide lucide-swatch-book"
+  >
+    <path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z" />
+    <path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7" />
+    <path d="M 7 17h.01" />
+    <path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8" />
+  </svg>
+</button>
+
+<!-- Palette Generator Page -->
 <div
   class="relative z-10 flex h-full w-full flex-col items-center gap-10 py-32"
   [ngClass]="isExportPopupVisible() ? 'fixed bottom-0 left-0 right-0 top-0 overflow-hidden' : 'overflow-scroll'"
 >
   <h1 class="z-10 text-4xl font-bold text-gray-950">TailwindCSS Color Palette Generator</h1>
-  <app-color-picker (hexColor)="selectedColor.set($event)"></app-color-picker>
+  <div class="flex justify-center flex-col gap-3">
+    <app-color-picker (hexColor)="selectedColor.set($event)"></app-color-picker>
+    <p class="font-light text-center text-gray-800">{{ colorPalette()?.colorName }}</p>
+  </div>
 
   @if (colorPalette()) {
-    <div class="flew w-full flex-col gap-3">
-      <p class="py-2 text-xl font-medium text-gray-950">{{ colorPalette()?.colorName }}</p>
-      <app-palette-row class="mt-10 w-full" [colorPalette]="colorPalette()!"></app-palette-row>
-    </div>
+    <app-palette-row class="mt-10 w-full" [colorPalette]="colorPalette()!"></app-palette-row>
 
-    <app-ui-preview class="w-full" [colorPalette]="colorPalette()!"></app-ui-preview>
+    <app-ui-preview class="w-full mt-16" [colorPalette]="colorPalette()!"></app-ui-preview>
   }
 </div>

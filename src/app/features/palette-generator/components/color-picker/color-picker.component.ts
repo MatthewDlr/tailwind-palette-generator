@@ -31,6 +31,10 @@ export class ColorPickerComponent implements OnInit {
     }
   }
 
+  protected getRandomColor() {
+    this.onColorChange(chroma.random().hex().slice(1));
+  }
+
   protected onColorInputClick() {
     this.colorInputElement.nativeElement.select();
   }
@@ -41,14 +45,5 @@ export class ColorPickerComponent implements OnInit {
     }
     const isHexColor = /^[0-9A-F]{6}$/i.test(color);
     return isHexColor;
-  }
-
-  @HostListener("document:keypress", ["$event"])
-  protected onKeyPress(event: KeyboardEvent) {
-    if (event.key === " ") {
-      event.preventDefault();
-      this.colorInput = chroma.random().hex().slice(1);
-      this.hexColor.emit(this.colorInput);
-    }
   }
 }

@@ -2,7 +2,7 @@
   "version": 2,
   "public": true,
   "name": "tailwind-palette-generator",
-  "devCommand": "node dist/tailwind-palette-generator/server/main.js",
+  "devCommand": "node dist/server/main.js",
   "rewrites": [
     {
       "source": "/(.*)",
@@ -11,7 +11,7 @@
   ],
   "functions": {
     "api/index.js": {
-      "includeFiles": "dist/tailwind-palette-generator/**"
+      "includeFiles": "dist/**"
     }
   }
 }

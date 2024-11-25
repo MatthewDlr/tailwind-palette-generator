@@ -1,5 +1,5 @@
 <div class="flex w-full flex-col">
-  <h2 class="py-2 text-lg font-medium text-gray-950">UI Example</h2>
+  <h2 class="py-2 text-xl font-medium text-gray-950">UI Example</h2>
   <div class="flex flex-col gap-5">
     <div class="flex items-center justify-between rounded-xl border-2 border-gray-950 p-5 *:transition-all *:duration-300">
       <button
@@ -171,9 +171,9 @@
         </div>
       </div>
     </div>
-    <div class="flex items-center justify-between overflow-hidden rounded-xl border-2 border-gray-950">
+    <div class="flex w-full items-center justify-between overflow-hidden rounded-xl border-2 border-gray-950">
       <div
-        class="py-14 sm:py-20"
+        class="w-full py-14 sm:py-20 transition-all duration-300"
         [ngStyle]="{
           'background-color': colorPalette().colors[0].hexCode,
         }"
@@ -188,7 +188,7 @@
                 src="https://images.unsplash.com/photo-1519338381761-c7523edc1f46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
                 alt=""
               />
-              <div class="w-full flex-auto">
+              <div class="w-full flex-auto *:transition-all *:duration-300">
                 <h2
                   class="text-pretty text-4xl font-semibold tracking-tight sm:text-5xl"
                   [ngStyle]="{
@@ -208,7 +208,7 @@
                 </p>
                 <ul
                   role="list"
-                  class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 sm:grid-cols-2"
+                  class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 sm:grid-cols-2 "
                   [ngStyle]="{
                     color: colorPalette().colors[7].hexCode,
                   }"
@@ -279,7 +279,7 @@
                   [ngStyle]="{
                     'background-color': colorPalette().colors[8].hexCode,
                   }"
-                  class="mt-10 rounded-md px-3.5 py-2.5 ring-[6px] ring-white/50 text-sm font-semibold text-white transition-all hover:brightness-95 focus-visible:outline-none active:scale-95"
+                  class="mt-10 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ring-[6px] ring-white/50 transition-all duration-300 hover:brightness-95 focus-visible:outline-none active:scale-95"
                 >
                   See our job postings
                   <span aria-hidden="true">&rarr;</span>
@@ -292,7 +292,7 @@
             aria-hidden="true"
           >
             <div
-              class="aspect-[1318/752] w-[82.375rem] flex-none opacity-50"
+              class="aspect-[1318/752] w-[82.375rem] flex-none opacity-50 transition-all duration-300"
               [ngStyle]="{
                 'background-image':
                   'linear-gradient(to right, ' + colorPalette().colors[2].hexCode + ', ' + colorPalette().colors[4].hexCode + ')',

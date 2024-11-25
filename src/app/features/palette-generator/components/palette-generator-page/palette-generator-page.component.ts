@@ -6,10 +6,11 @@ import { CodeExportBlocComponent } from "../code-export-bloc/code-export-bloc.co
 import { ColorPickerComponent } from "../color-picker/color-picker.component";
 import { PaletteRowComponent } from "../palette-row/palette-row.component";
 import { UiPreviewComponent } from "../ui-preview/ui-preview.component";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-palette-generator-page",
-  imports: [ColorPickerComponent, PaletteRowComponent, CodeExportBlocComponent, UiPreviewComponent],
+  imports: [CommonModule, ColorPickerComponent, PaletteRowComponent, CodeExportBlocComponent, UiPreviewComponent],
   templateUrl: "./palette-generator-page.component.html",
   styleUrl: "./palette-generator-page.component.scss",
 })
@@ -24,4 +25,5 @@ export class PaletteGeneratorPageComponent {
       colors: this.paletteGeneratorService.generatePaletteColors(this.selectedColor()),
     } as ColorPalette;
   });
+  public isExportPopupVisible = signal(false);
 }

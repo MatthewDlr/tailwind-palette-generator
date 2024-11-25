@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import chroma from "chroma-js";
 import { ColorPalette } from "../../types/ColorPalette.type";
+import { ExportCodeType } from "../../types/ExportCodeType.type";
 
 @Injectable({
   providedIn: "root",
@@ -8,14 +9,17 @@ import { ColorPalette } from "../../types/ColorPalette.type";
 export class CodeExportService {
   constructor() {}
 
-  public generateCodeFromPalette(colorPalette: ColorPalette, tailwindVersion: "4.x" | "3.x"): string {
+  public generateCodeFromPalette(colorPalette: ColorPalette, codeType: ExportCodeType): string {
     const palette = { ...colorPalette };
     palette.colorName = this.toCamelCase(palette.colorName);
 
-    if (tailwindVersion === "4.x") {
+    if (codeType === "TAILWIND4") {
       return this.generateNewTailwindConfig(palette);
+    } else if (codeType === "TAILWIND3") {
+      return this.generateOldTailwindConfig(palette);
+    } else {
+      return "";
     }
-    return "this.generateOldTailwindConfig(exportPalette, colorName)";
   }
 
   private generateNewTailwindConfig(colorPalette: ColorPalette): string {
@@ -31,7 +35,9 @@ ${colorPalette.colors.map(color => "    " + this.generateNewTailwindColor(colorN
     return `--color-${colorName}-${shade}: oklch(${oklch[0]} ${oklch[1]} ${oklch[2]});`;
   }
 
-  private generateOldTailwindConfig(colorPalette: ColorPalette): void {}
+  private generateOldTailwindConfig(colorPalette: ColorPalette): string {
+    return "";
+  }
 
   private toCamelCase(str: string) {
     return str

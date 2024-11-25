@@ -1,0 +1,1 @@
+export type ExportCodeType = 'TAILWIND4' | 'TAILWIND3' | 'CSS';

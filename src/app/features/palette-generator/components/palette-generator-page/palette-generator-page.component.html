@@ -1,17 +1,32 @@
-<div class="relative z-10 flex h-full w-full flex-col items-center gap-10 pt-32">
+@if (isExportPopupVisible()) {
+  <app-code-export-bloc
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+    [colorPalette]="colorPalette()!"
+    (closePopup)="isExportPopupVisible.set(false)"
+  ></app-code-export-bloc>
+} @else {
+  <button
+    type="button"
+    class="bottom-10 fixed left-1/2 z-50 -translate-x-1/2 transform rounded-full bg-gray-950 px-4 py-2.5 border-4 border-white/25 font-semibold text-white shadow-sm focus-visible:outline-none"
+    (click)="isExportPopupVisible.set(true)"
+  >
+    Export Palette
+  </button>
+}
+
+<div
+  class="relative z-10 flex h-full w-full flex-col items-center gap-10 py-32"
+  [ngClass]="isExportPopupVisible() ? 'fixed bottom-0 left-0 right-0 top-0 overflow-hidden' : 'overflow-scroll'"
+>
   <h1 class="z-10 text-4xl font-bold text-gray-950">TailwindCSS Color Palette Generator</h1>
-  <div class="flex flex-col gap-2">
-    <app-color-picker (hexColor)="selectedColor.set($event)"></app-color-picker>
-    @if (colorPalette()) {
-      <p class="text-nowrap text-center font-normal text-gray-900">{{ colorPalette()?.colorName }}</p>
-    }
-  </div>
+  <app-color-picker (hexColor)="selectedColor.set($event)"></app-color-picker>
 
   @if (colorPalette()) {
-    <app-palette-row class="mt-10" [colorPalette]="colorPalette()!"></app-palette-row>
+    <div class="flew w-full flex-col gap-3">
+      <p class="py-2 text-xl font-medium text-gray-950">{{ colorPalette()?.colorName }}</p>
+      <app-palette-row class="mt-10 w-full" [colorPalette]="colorPalette()!"></app-palette-row>
+    </div>
 
     <app-ui-preview class="w-full" [colorPalette]="colorPalette()!"></app-ui-preview>
-
-    <app-code-export-bloc class="mt-10" [colorPalette]="colorPalette()!"></app-code-export-bloc>
   }
 </div>

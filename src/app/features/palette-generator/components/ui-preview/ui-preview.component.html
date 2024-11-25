@@ -1,0 +1,326 @@
+<div class="flex w-full flex-col">
+  <h2 class="py-2 text-lg font-medium text-gray-950">UI Example</h2>
+  <div class="flex flex-col gap-5">
+    <div class="flex items-center justify-between rounded-xl border-2 border-gray-950 p-5 *:transition-all *:duration-300">
+      <button
+        type="button"
+        [ngStyle]="{
+          'background-color': colorPalette().colors[8].hexCode,
+        }"
+        class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-95"
+      >
+        Button Example
+      </button>
+      <button
+        type="button"
+        [ngStyle]="{
+          'border-color': colorPalette().colors[8].hexCode,
+          color: colorPalette().colors[8].hexCode,
+        }"
+        class="rounded-md border px-3.5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-95"
+      >
+        Button Example
+      </button>
+      <button
+        type="button"
+        [ngStyle]="{
+          'background-color': colorPalette().colors[0].hexCode,
+          color: colorPalette().colors[8].hexCode,
+        }"
+        class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-95"
+      >
+        Button Example
+      </button>
+
+      <button
+        (click)="toggleState = !toggleState"
+        type="button"
+        [ngStyle]="{ 'background-color': toggleState ? colorPalette().colors[8].hexCode : '#e5e7eb' }"
+        class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-transparent"
+        role="switch"
+        aria-checked="false"
+      >
+        <span
+          aria-hidden="true"
+          [ngClass]="toggleState ? 'translate-x-5' : 'translate-x-0'"
+          class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+        ></span>
+      </button>
+      <button
+        type="button"
+        [ngStyle]="{
+          'background-color': colorPalette().colors[8].hexCode,
+        }"
+        class="size-9 rounded-full p-2 text-white hover:brightness-95 focus:outline-none"
+      >
+        <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+          <path
+            d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"
+          />
+        </svg>
+      </button>
+      <span
+        class="inline-flex items-center rounded-md border px-2 py-1 text-xs font-medium"
+        [ngStyle]="{
+          'background-color': colorPalette().colors[0].hexCode,
+          color: colorPalette().colors[8].hexCode,
+          borderColor: colorPalette().colors[8].hexCode,
+        }"
+        >Badge</span
+      >
+      <div
+        class="rounded-md border-2 px-3 pb-1.5 pt-2.5 transition-all focus-within:rounded-2xl"
+        [ngStyle]="{
+          'border-color': colorPalette().colors[8].hexCode,
+        }"
+      >
+        <label for="name" class="block text-xs font-medium text-gray-950">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="block w-full border-0 bg-transparent p-0 text-gray-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
+          placeholder="Jane Smith"
+        />
+      </div>
+    </div>
+    <div class="flex items-center justify-between rounded-xl border-2 border-gray-950 px-5 py-10">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:max-w-none">
+          <div class="text-center *:transition-all">
+            <h2 class="text-balance text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
+              Trusted by creators worldwide
+            </h2>
+            <p
+              class="mt-4 text-lg/8 text-gray-600 transition-all duration-300"
+              [ngStyle]="{
+                color: colorPalette().colors[5].hexCode,
+              }"
+            >
+              This is how this color looks in a real-world example.
+            </p>
+          </div>
+          <dl
+            class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center *:transition-all *:duration-300 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            <div
+              class="flex flex-col p-8"
+              [ngStyle]="{
+                'background-color': colorPalette().colors[0].hexCode,
+              }"
+            >
+              <dt class="text-sm/6 font-semibold text-gray-600">Creators on the platform</dt>
+              <dd
+                class="order-first text-3xl font-semibold tracking-tight"
+                [ngStyle]="{
+                  color: colorPalette().colors[8].hexCode,
+                }"
+              >
+                8,000+
+              </dd>
+            </div>
+            <div
+              class="flex flex-col p-8"
+              [ngStyle]="{
+                'background-color': colorPalette().colors[0].hexCode,
+              }"
+            >
+              <dt class="text-sm/6 font-semibold text-gray-600">Flat platform fee</dt>
+              <dd
+                class="order-first text-3xl font-semibold tracking-tight"
+                [ngStyle]="{
+                  color: colorPalette().colors[8].hexCode,
+                }"
+              >
+                3%
+              </dd>
+            </div>
+            <div
+              class="flex flex-col p-8"
+              [ngStyle]="{
+                'background-color': colorPalette().colors[0].hexCode,
+              }"
+            >
+              <dt class="text-sm/6 font-semibold text-gray-600">Uptime guarantee</dt>
+              <dd
+                class="order-first text-3xl font-semibold tracking-tight"
+                [ngStyle]="{
+                  color: colorPalette().colors[8].hexCode,
+                }"
+              >
+                99.9%
+              </dd>
+            </div>
+            <div
+              class="flex flex-col bg-gray-400/5 p-8"
+              [ngStyle]="{
+                'background-color': colorPalette().colors[0].hexCode,
+              }"
+            >
+              <dt class="text-sm/6 font-semibold text-gray-600">Paid out to creators</dt>
+              <dd
+                class="order-first text-3xl font-semibold tracking-tight"
+                [ngStyle]="{
+                  color: colorPalette().colors[8].hexCode,
+                }"
+              >
+                $70M
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between overflow-hidden rounded-xl border-2 border-gray-950">
+      <div
+        class="py-14 sm:py-20"
+        [ngStyle]="{
+          'background-color': colorPalette().colors[0].hexCode,
+        }"
+      >
+        <div class="relative isolate">
+          <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div
+              class="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20"
+            >
+              <img
+                class="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
+                src="https://images.unsplash.com/photo-1519338381761-c7523edc1f46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                alt=""
+              />
+              <div class="w-full flex-auto">
+                <h2
+                  class="text-pretty text-4xl font-semibold tracking-tight sm:text-5xl"
+                  [ngStyle]="{
+                    color: colorPalette().colors[9].hexCode,
+                  }"
+                >
+                  Join our team
+                </h2>
+                <p
+                  class="mt-6 text-pretty text-lg/8"
+                  [ngStyle]="{
+                    color: colorPalette().colors[7].hexCode,
+                  }"
+                >
+                  Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
+                  accusamus quisquam.
+                </p>
+                <ul
+                  role="list"
+                  class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 sm:grid-cols-2"
+                  [ngStyle]="{
+                    color: colorPalette().colors[7].hexCode,
+                  }"
+                >
+                  <li class="flex gap-x-3">
+                    <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Competitive salaries
+                  </li>
+                  <li class="flex gap-x-3">
+                    <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Flexible work hours
+                  </li>
+                  <li class="flex gap-x-3">
+                    <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    30 days of paid vacation
+                  </li>
+                  <li class="flex gap-x-3">
+                    <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Annual team retreats
+                  </li>
+                  <li class="flex gap-x-3">
+                    <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Benefits for you and your family
+                  </li>
+                  <li class="flex gap-x-3">
+                    <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    A great work environment
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  [ngStyle]="{
+                    'background-color': colorPalette().colors[8].hexCode,
+                  }"
+                  class="mt-10 rounded-md px-3.5 py-2.5 ring-[6px] ring-white/50 text-sm font-semibold text-white transition-all hover:brightness-95 focus-visible:outline-none active:scale-95"
+                >
+                  See our job postings
+                  <span aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
+            aria-hidden="true"
+          >
+            <div
+              class="aspect-[1318/752] w-[82.375rem] flex-none opacity-50"
+              [ngStyle]="{
+                'background-image':
+                  'linear-gradient(to right, ' + colorPalette().colors[2].hexCode + ', ' + colorPalette().colors[4].hexCode + ')',
+              }"
+              style="
+                clip-path: polygon(
+                  73.6% 51.7%,
+                  91.7% 11.8%,
+                  100% 46.4%,
+                  97.4% 82.2%,
+                  92.5% 84.9%,
+                  75.7% 64%,
+                  55.3% 47.5%,
+                  46.5% 49.4%,
+                  45% 62.9%,
+                  50.3% 87.2%,
+                  21.3% 64.1%,
+                  0.1% 100%,
+                  5.4% 51.1%,
+                  21.4% 63.9%,
+                  58.9% 0.2%,
+                  73.6% 51.7%
+                );
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,8 @@
   @if (colorPalette()) {
     <app-palette-row class="mt-10" [colorPalette]="colorPalette()!"></app-palette-row>
 
+    <app-ui-preview class="w-full" [colorPalette]="colorPalette()!"></app-ui-preview>
+
     <app-code-export-bloc class="mt-10" [colorPalette]="colorPalette()!"></app-code-export-bloc>
   }
 </div>

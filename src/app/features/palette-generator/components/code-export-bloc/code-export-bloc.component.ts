@@ -1,6 +1,17 @@
 import { CommonModule } from "@angular/common";
-import { Component, ElementRef, HostListener, inject, input, linkedSignal, output, signal, ViewChild } from "@angular/core";
-import { HighlightAuto } from "ngx-highlightjs";
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  input,
+  linkedSignal,
+  output,
+  signal,
+  ViewChild,
+  WritableSignal,
+} from "@angular/core";
+import { HighlightAuto, HighlightLoader } from "ngx-highlightjs";
 import { HighlightLineNumbers } from "ngx-highlightjs/line-numbers";
 import { CodeExportService } from "../../services/code-export/code-export.service";
 import { ColorPalette } from "../../types/ColorPalette.type";
@@ -19,7 +30,7 @@ export class CodeExportBlocComponent {
   public colorPalette = input.required<ColorPalette>();
   public code = linkedSignal(() => this.codeExportService.generateCodeFromPalette(this.colorPalette(), this.codeType()));
   public closePopup = output();
-
+  public copyCodeText: WritableSignal<"Copy to clipboard" | "Copied!"> = signal("Copy to clipboard");
 
   @HostListener("document:keydown.escape", ["$event"])
   onKeydownHandlerEscape() {
@@ -34,6 +45,12 @@ export class CodeExportBlocComponent {
   }
 
   protected copyCodeToClipboard() {
+    if (!navigator.clipboard || this.copyCodeText() === "Copied!") return;
+
     navigator.clipboard.writeText(this.code());
+    this.copyCodeText.set("Copied!");
+    setTimeout(() => {
+      this.copyCodeText.set("Copy to clipboard");
+    }, 3000);
   }
 }

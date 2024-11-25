@@ -1,10 +1,12 @@
-<div class="flex h-fit w-fit items-center gap-1 rounded-full border-2 border-gray-950 bg-white px-4 py-2.5 transition-all">
+<div
+  class="flex h-fit w-fit items-center gap-1 rounded-full border-2 border-gray-950 bg-white px-4 py-2.5 transition-all dark:border-white dark:bg-black"
+>
   <div
-    class="size-8 rounded-full border border-gray-400 transition-all duration-300"
+    class="size-8 rounded-full border border-gray-400 dark:border-gray-700 transition-all duration-300"
     [ngStyle]="{ 'background-color': colorInput.length >= 6 ? '#' + colorInput : '#ffffff' }"
   ></div>
   <div class="group relative inline-block">
-    <button class="mr-4 rounded-full p-2 transition-all duration-300 hover:bg-gray-100" (click)="getRandomColor()">
+    <button class="mr-4 rounded-full p-2 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-900" (click)="getRandomColor()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -15,7 +17,7 @@
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="lucide lucide-shuffle stroke-gray-950"
+        class="lucide lucide-shuffle stroke-gray-950 dark:stroke-gray-50"
       >
         <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" />
         <path d="m18 2 4 4-4 4" />
@@ -37,7 +39,7 @@
       [ngModel]="colorInput"
       (ngModelChange)="onColorChange($event)"
       (click)="onColorInputClick()"
-      class="block w-24 min-w-0 border-transparent bg-transparent px-0 py-1.5 text-xl font-medium uppercase text-gray-900 placeholder:text-gray-300 focus:border-transparent focus:ring-0"
+      class="block w-24 min-w-0 border-transparent bg-transparent px-0 py-1.5 text-xl font-medium uppercase text-gray-900 dark:text-gray-100 placeholder:text-gray-300 focus:border-transparent focus:ring-0"
     />
   </div>
 </div>

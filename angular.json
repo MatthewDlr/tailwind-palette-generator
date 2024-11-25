@@ -31,7 +31,7 @@
               },
               "src/manifest.json"
             ],
-            "styles": ["src/styles.scss", "node_modules/highlight.js/styles/github.css"],
+            "styles": ["src/styles.scss", "node_modules/highlight.js/styles/github.css", "node_modules/highlight.js/styles/github-dark.css"],
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",

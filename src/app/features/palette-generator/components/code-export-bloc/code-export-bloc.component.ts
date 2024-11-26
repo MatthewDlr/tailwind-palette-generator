@@ -11,7 +11,7 @@ import {
   ViewChild,
   WritableSignal,
 } from "@angular/core";
-import { HighlightAuto, HighlightLoader } from "ngx-highlightjs";
+import { HighlightAuto } from "ngx-highlightjs";
 import { HighlightLineNumbers } from "ngx-highlightjs/line-numbers";
 import { CodeExportService } from "../../services/code-export/code-export.service";
 import { ColorPalette } from "../../types/ColorPalette.type";

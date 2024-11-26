@@ -17,8 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "baseHref": "/",
-            "outputPath": "dist",
+            "outputPath": "dist/tailwind-palette-generator",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [],
@@ -28,10 +27,13 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              "src/manifest.json"
+              }
             ],
-            "styles": ["src/styles.scss", "node_modules/highlight.js/styles/github.css", "node_modules/highlight.js/styles/github-dark.css"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/highlight.js/styles/github.css",
+              "node_modules/highlight.js/styles/github-dark.css"
+            ],
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -49,19 +51,11 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": false
-                },
-                "fonts": false
-              }
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
@@ -112,7 +106,7 @@
     }
   },
   "cli": {
-    "analytics": "350a33a7-4e8c-4bae-b2ab-232d7a4f3433",
+    "analytics": "3adb0b76-06a9-46b9-bb10-260291c0cf1f",
     "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

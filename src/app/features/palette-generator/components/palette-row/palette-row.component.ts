@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, effect, input } from "@angular/core";
+import { Component, input } from "@angular/core";
 import chroma from "chroma-js";
 import { ColorPalette } from "../../types/ColorPalette.type";
 

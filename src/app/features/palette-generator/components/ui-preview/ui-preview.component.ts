@@ -1,6 +1,6 @@
-import { Component, effect, input } from "@angular/core";
-import { ColorPalette } from "../../types/ColorPalette.type";
 import { CommonModule } from "@angular/common";
+import { Component, input } from "@angular/core";
+import { ColorPalette } from "../../types/ColorPalette.type";
 
 @Component({
   selector: "app-ui-preview",

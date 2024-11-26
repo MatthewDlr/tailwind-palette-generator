@@ -12,10 +12,13 @@ module.exports = tseslint.config(
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
-      eslintConfigPrettier
+      eslintConfigPrettier,
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "@typescript-eslint/ban-ts-comment": ["off"],
+      "@typescript-eslint/no-unused-expressions": ["off"],
+      "@typescript-eslint/no-explicit-any": ["off"],
       "@angular-eslint/directive-selector": [
         "error",
         {

@@ -1,14 +1,14 @@
 import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from "@angular/core";
-import { provideClientHydration, withIncrementalHydration } from "@angular/platform-browser";
 import { provideRouter } from "@angular/router";
-import { provideHighlightOptions } from "ngx-highlightjs";
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { routes } from "./app.routes";
+import { provideHighlightOptions } from "ngx-highlightjs";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideRouter(routes),
-    provideClientHydration(withIncrementalHydration()),
+    provideClientHydration(withEventReplay()),
     provideHighlightOptions({
       coreLibraryLoader: () => import("highlight.js/lib/core"),
       lineNumbersLoader: () => import("ngx-highlightjs/line-numbers"),

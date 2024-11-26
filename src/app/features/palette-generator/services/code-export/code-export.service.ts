@@ -7,8 +7,6 @@ import { ExportCodeType } from "../../types/ExportCodeType.type";
   providedIn: "root",
 })
 export class CodeExportService {
-  constructor() {}
-
   public generateCodeFromPalette(colorPalette: ColorPalette, codeType: ExportCodeType): string {
     const palette = { ...colorPalette };
     palette.colorName = this.toCamelCase(palette.colorName);

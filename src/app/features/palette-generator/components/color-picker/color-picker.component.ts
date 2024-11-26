@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, ElementRef, HostListener, OnInit, output, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, output, ViewChild } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import chroma from "chroma-js";
 

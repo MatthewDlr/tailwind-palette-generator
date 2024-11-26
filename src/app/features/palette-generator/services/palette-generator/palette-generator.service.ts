@@ -6,8 +6,6 @@ import { PaletteColor } from "../../types/ColorPalette.type";
   providedIn: "root",
 })
 export class PaletteGeneratorService {
-  constructor() {}
-
   public generatePaletteColors(hexColor: string): PaletteColor[] {
     // Calculate luminance (0 = black, 1 = white)
     const luminance = chroma(hexColor).luminance();
@@ -18,17 +16,17 @@ export class PaletteGeneratorService {
     const domain = [0, basePosition, 1];
 
     const scale = chroma.scale(["white", hexColor, "black"]).domain(domain).mode("lab");
-    let paletteColors = scale.colors(13);
+    const paletteColors = scale.colors(13);
     paletteColors.shift(); //remove white
     paletteColors.pop(); //remove black
 
     //if hex color is not in the palette, find the closest color and replace it
     if (!paletteColors.includes("#" + hexColor)) {
-      let closestColor = chroma(hexColor).alpha(1).css();
+      const  closestColor = chroma(hexColor).alpha(1).css();
       let closestColorIndex = 0;
       let minDistance = 1000;
       for (let i = 0; i < paletteColors.length; i++) {
-        let distance = chroma.distance(paletteColors[i], closestColor);
+        const distance = chroma.distance(paletteColors[i], closestColor);
         if (distance < minDistance) {
           minDistance = distance;
           closestColorIndex = i;

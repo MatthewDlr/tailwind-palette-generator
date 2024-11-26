@@ -38,7 +38,7 @@
   class="relative z-10 flex h-full w-full flex-col items-center gap-10 px-32 py-32 transition-all duration-300 max-2xl:px-28 max-xl:px-24 max-lg:px-20"
   [ngClass]="isExportPopupVisible() ? 'fixed bottom-0 left-0 right-0 top-0 overflow-hidden' : 'overflow-scroll'"
 >
-  <h1 class="z-10 text-4xl font-bold text-gray-950 dark:text-gray-50">TailwindCSS Color Palette Generator</h1>
+  <h1 class="z-10 text-4xl font-bold text-gray-950 dark:text-gray-50">TailwindCSS 4.0 Color Palette Generator</h1>
   <div class="flex flex-col justify-center gap-3">
     <app-color-picker (hexColor)="selectedColor.set($event)"></app-color-picker>
     <p class="text-center font-light text-gray-800 dark:text-gray-200">{{ colorPalette()?.colorName }}</p>

@@ -12,8 +12,8 @@
           [ngStyle]="{ 'background-color': color.hexCode }"
           [ngClass]="color.hexCode === '#' + colorPalette().mainColor ? 'rounded-[100px]' : 'rounded-xl'"
         >
-          <p class="text-base font-medium" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.shade }}</p>
-          <p class="text-sm uppercase" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.hexCode }}</p>
+          <p class="text-base font-medium text-opacity-90" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.shade }}</p>
+          <p class="text-sm uppercase text-opacity-90" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.hexCode }}</p>
         </div>
       </div>
     </button>

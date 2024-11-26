@@ -15,8 +15,7 @@ export class PaletteRowComponent {
   public getTextColor(bgColor: string): string {
     const color = chroma(bgColor);
     const luminance = color.luminance();
-    const textColor = luminance > 0.5 ? color.darken(3).hex() : color.brighten(3).hex();
-    return textColor;
+    return luminance >= 0.2 ? "#000000" : "#FFFFFF";
   }
 
   public copyColorToClipboard(color: string): void {

@@ -1,4 +1,7 @@
-<div #popup class="animate-pop h-fit w-1/2 rounded-2xl border border-gray-300 bg-white p-6 dark:border-gray-700 dark:bg-black">
+<div
+  #popup
+  class="animate-pop h-fit w-1/2 rounded-2xl border border-gray-300 bg-white p-6 max-md:mb-5 max-md:w-[90%] dark:border-gray-700 dark:bg-black"
+>
   <div class="flex w-full flex-row items-center gap-3">
     <legend class="mr-1 text-sm/6 font-semibold text-gray-950 dark:text-gray-50">TailwindCSS Version:</legend>
     <div class="flex items-center">
@@ -29,21 +32,19 @@
       {{ codeType() === "TAILWIND4" ? "styles.css" : "tailwind.config.js" }}
     </p>
     <button
-      class="darktransition-all flex items-center gap-2 rounded-md px-2 py-1 text-sm font-medium text-gray-950 duration-300 hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-700"
+      class="transition-all flex items-center gap-2 rounded-md px-2 py-1 text-sm font-medium text-gray-950 duration-300 hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-700"
       (click)="copyCodeToClipboard()"
     >
       {{ copyCodeText() }}
       @if (copyCodeText() === "Copy to clipboard") {
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
           viewBox="0 0 24 24"
           fill="none"
           stroke-width="1.75"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-clipboard-copy stroke-gray-950 dark:stroke-gray-50"
+          class="lucide lucide-clipboard-copy size-5 stroke-gray-950 dark:stroke-gray-50"
         >
           <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
           <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
@@ -51,9 +52,28 @@
           <path d="M21 14H11" />
           <path d="m15 10-4 4 4 4" />
         </svg>
+      } @else {
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-clipboard-check size-5 stroke-gray-950 dark:stroke-gray-50"
+        >
+          <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <path d="m9 14 2 2 4-4" />
+        </svg>
       }
     </button>
   </div>
 
-  <pre class="h-fit overflow-hidden rounded-b-lg border-2 border-gray-100 dark:border-gray-800"><code [highlightAuto]="code()" [languages]="['css', 'js']" lineNumbers class="hljs dark:text-white"></code></pre>
+  <pre
+    class="h-fit overflow-hidden rounded-b-lg border-2 border-gray-100 dark:border-gray-800"
+  ><code [highlightAuto]="code()" [languages]="['css', 'js']" lineNumbers class="hljs dark:text-white"></code></pre>
 </div>

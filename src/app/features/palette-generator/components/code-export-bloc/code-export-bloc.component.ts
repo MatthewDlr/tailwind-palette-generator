@@ -44,6 +44,13 @@ export class CodeExportBlocComponent {
     }
   }
 
+  @HostListener("window:popstate", ["$event"])
+  onPopState(event: PopStateEvent) {
+    if (event.state && event.state.popup) {
+      this.closePopup.emit();
+    }
+  }
+
   protected copyCodeToClipboard() {
     if (!navigator.clipboard || this.copyCodeText() === "Copied!") return;
 
@@ -51,6 +58,6 @@ export class CodeExportBlocComponent {
     this.copyCodeText.set("Copied!");
     setTimeout(() => {
       this.copyCodeText.set("Copy to clipboard");
-    }, 3000);
+    }, 5000);
   }
 }

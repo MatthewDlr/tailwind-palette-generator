@@ -1,18 +1,22 @@
-<div class="flex h-fit w-full justify-between">
+<div class="flex h-fit w-full justify-between max-lg:flex-col max-lg:items-center max-lg:gap-3">
   @for (color of colorPalette().colors; track $index) {
     <button
-      class="group flex flex-col items-center fade-right transition-all duration-300 fade-right-delay-{{ $index + 1 }} "
+      class="group flex flex-col items-center fade-right transition-all duration-300 fade-right-delay-{{
+        $index + 1
+      }} max-lg:w-3/4 "
       (click)="copyColorToClipboard(color.hexCode)"
       (keypress)="copyColorToClipboard(color.hexCode)"
-      tabindex="0"
+      tabindex="{{ $index }}"
     >
-      <div class="flex flex-col justify-end gap-2 align-middle transition-all duration-300 group-hover:-translate-y-2">
+      <div class="flex w-full flex-col justify-end gap-2 align-middle transition-all duration-300 group-hover:-translate-y-2">
         <div
-          class="flex h-40 w-24 flex-col items-center gap-1 px-2 py-4 max-xl:w-20 transition-all duration-300"
+          class="flex h-40 w-24 flex-col items-center gap-1 px-2 py-4 transition-all duration-300 max-xl:w-20 max-md:h-16 max-md:w-full max-md:justify-center"
           [ngStyle]="{ 'background-color': color.hexCode }"
           [ngClass]="color.hexCode === '#' + colorPalette().mainColor ? 'rounded-[100px]' : 'rounded-xl'"
         >
-          <p class="text-base font-medium text-opacity-90" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.shade }}</p>
+          <p class="text-base font-medium text-opacity-90" [ngStyle]="{ color: getTextColor(color.hexCode) }">
+            {{ color.shade }}
+          </p>
           <p class="text-sm uppercase text-opacity-90" [ngStyle]="{ color: getTextColor(color.hexCode) }">{{ color.hexCode }}</p>
         </div>
       </div>

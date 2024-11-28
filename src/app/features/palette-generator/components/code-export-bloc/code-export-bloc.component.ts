@@ -47,6 +47,7 @@ export class CodeExportBlocComponent {
   @HostListener("window:popstate", ["$event"])
   onPopState(event: PopStateEvent) {
     if (event.state && event.state.popup) {
+      event.preventDefault();
       this.closePopup.emit();
     }
   }

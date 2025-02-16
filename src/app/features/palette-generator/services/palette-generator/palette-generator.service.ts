@@ -10,7 +10,6 @@ export class PaletteGeneratorService {
     const lum = chroma(hexColor).luminance(); // The closer to 1, the lighter the color
 
     const middle = lum < 0.5 ? 0.5 : lum > 0.75 ? 0.4 : 0.45; 
-    console.log(middle);
 
     const scale = chroma.scale(["white", hexColor, "black"]).domain([0, middle, 1]).mode("lab");
 

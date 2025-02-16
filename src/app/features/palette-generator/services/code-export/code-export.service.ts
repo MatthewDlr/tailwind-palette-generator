@@ -28,9 +28,10 @@ ${colorPalette.colors.map(color => "    " + this.generateNewTailwindColor(colorN
   }
 
   private generateNewTailwindColor(colorName: string, color: string, shade: number): string {
-    const LongOklch = chroma(color).oklch();
-    const oklch = LongOklch.map(value => parseFloat(value.toFixed(4)));
-    return `--color-${colorName}-${shade}: oklch(${oklch[0]} ${oklch[1]} ${oklch[2]});`;
+    const [l, c, h] = chroma(color).oklch();
+    const safeC = isNaN(c) ? 0 : c;
+    const safeH = isNaN(h) ? 0 : h;
+    return `--color-${colorName}-${shade}: oklch(${l.toFixed(4)} ${safeC.toFixed(4)} ${safeH.toFixed(4)});`;
   }
 
   private generateOldTailwindConfig(colorPalette: ColorPalette): string {
